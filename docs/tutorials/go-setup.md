@@ -1,19 +1,19 @@
-# Setting up a dev container for Go
+# HelloGo: Setting Up a Dev Container for Go
 
 * Primary author: [Abiye Berhanu](https://github.com/aberhanu)
 
 * Reviewer: [Ben Edwards](https://github.com/bkedwards)
 
 ## Prerequisites
-1. `GitHub`: If you haven't set up a GitHub account, sign up at [GitHub](https://github.com/).
+1. `GitHub`: If you don't already have a GitHub account, sign up for one on [GitHub](https://github.com/).
 2. `Git`: Install Git [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 3. `Visual Studio Code`: Download VS Code [here](https://code.visualstudio.com/).
 4. `Docker`: Install [Docker](https://www.docker.com/products/docker-desktop/) so you can run the dev container.
 
 ## Project Setup
-### Set up a Directory and initialize Git:
+### Set up a Directory and Initialize Git:
 1. Open your command prompt or terminal.
-2. Create a new empty directory to host your project (Navigate to a different directory to change the location of the project to your preference)
+2. Create a new empty directory to host your project (If you wish to open the project in a specific directory, navigate to that directory first)
 ```bash
 mkdir Hello-Go
 cd Hello-Go
@@ -28,11 +28,11 @@ echo "# COMP423 Go Tutorial" > README.md
 git add README.md
 git commit -m "Initial commit with README"
 ```
-### Set up a Remote Repository:
-1. Log into your github account and head to the [Create a New Repository](https://github.com/new) page.
+### Set Up a Remote Repository:
+1. Log into your GitHub account and head to the [Create a New Repository](https://github.com/new) page.
 2. Include the following information:
     - **Repository Name:** Hello-Go
-    - **Description:** "Initial Go project."
+    - **Description:** "Creating a Hello World project for Go using a dev container"
     - **Visibility:** Public
 3. Omit setting up the repository with a README.md, .gitignore, or license.
 ### Link your Local Repo to GitHub:
@@ -50,7 +50,9 @@ Make sure to replace `<your-username>` with your GitHub username.
             ```bash
             git branch -M main
             ```
--- Admonition: Old versions of `git` choose the name `master` for the primary branch, but these days `main` is the standard primary branch name.
+!!! note "`main` vs `master`?" 
+    Old versions of `git` choose the name `master` for the primary branch, but these days `main` is the standard primary branch name.
+
 3. Push your local commits to the GitHub repository:
 ```bash
 git push --set-upstream origin main
@@ -60,10 +62,11 @@ git push --set-upstream origin main
 #### Add Development Container Configuration
 1. Open the `HelloGo` directory in VS Code. You can do this via: File > Open Folder.
 2. Install the Dev Containers extension for VS Code.
-    - Go to the extensions Tab and search for the Dev Container extension (By Microsoft)
+    - Go to the Extensions tab and search for the Dev Container extension (By Microsoft)
 3. Create a `.devcontainer` directory in the root of your project
 
---Admonition The . at the beginning of the directory name/file indicates that it is a hidden configuration directory/file.
+!!! note "What does this the `.` indicate ?" 
+    The `.` at the beginning of a directory name or file indicates that it is a hidden directory or file. To see all files and folders in your directory (including hidden ones), run the command `ls -a` in your terminal.
 
 4. Within the `.devcontainer` directory create a `devcontainer.json` file.
     -  In this file we will specify the configuration for our dev environment as so:
@@ -79,24 +82,31 @@ git push --set-upstream origin main
     }
 }
 ```
---Admoniiton(Whole thingy): This configuration:
+
+!!! note "What does this mean?" 
+
+    This configuration: 
+
     - Uses the **Microsoft Go Dev Container image**.
+
     - Automatically installs the **Go VS Code plugin** (`golang.go`).
-    - Runs the `postCreateCommand` to install Python dependencies if needed (optional).
-#### Reopen Our Folder in a Dev Container:
+
+    - Runs the `postCreateCommand` to install dependencies or execute customized scripts (optional).
+
+#### Opening Your Project in a Dev Container:
 1. Open the VS Code Command Palette:
     - Mac Users: Press `Cmd+Shift+P`
     - Windows Users: Press `Ctrl+Shift+P`
 2. Type "Dev Containers: Reopen in Container," and select the option.
     - This may take a few minutes as the image downloads.
-3. When the dev container setup is complete, close the current terminal tab, and open a new terminal pane within VS Code
+3. When the dev container setup is complete, close the current terminal tab, and open a new terminal pane within VS Code.
 4. Try the following command: 
  ```bash
  go version 
  ``` 
 *If you check, you can see that you are currently running the latest version of go. (Version x.x.x as of January 2025)*
 ## Lets Code!
-### Hello COMP423 Program
+### "Hello COMP423!" Program
 We are now ready to write our first Go Program.
 
 1. Enable Dependency Tracking:
@@ -145,12 +155,10 @@ Finally, run the new `./hello` executable to confirm that the code works:
 ```bash
 ./hello
 ```
---Admonition: The `go build` command is used to compile Go code into an executable binary. This is much like how gcc would compile a C program into a runnable file. In contrast, go run, only compiles and runs the code in memory, go build writes out a fully independent binary, which then can be executed directly via./binary-name, thus reusable and portable.
-!!! note
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
+!!! note "Difference between `build` and `run`?" 
+
+    The `go build` command is used to compile Go code into an executable binary. This is similar to how `gcc` compiles a C program into a runnable file. The command `go build` writes out a fully independent binary, which then can be executed directly via `./binary-name`, and is thus reusable and portable. In contrast, `go run` compiles and runs the code in memory. 
 
 ## Congrats
 You succesfully built your first Go program, cheers to many more!
