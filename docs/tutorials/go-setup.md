@@ -154,7 +154,7 @@ While the `go run` command is a useful shortcut for compiling and running a prog
 
 - The `go build` command compiles the packages, as well as their dependencies, however it doesn't actually install the results.
 
-From the command line in the `HelloGo` directory, run the `go build` command to compile the code into an executable.
+From the command line in the `Hello-Go` directory, run the `go build` command to compile the code into an executable.
 
 ```bash
 go build
